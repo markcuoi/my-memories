@@ -1,13 +1,15 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import { Provider } from "react-redux";
-import { createStore, applyMiddleware, compose } from "redux";
-import thunk from "redux-thunk";
-import reducer from "./reducers";
-import App from "./App";
-import { BrowserRouter } from "react-router-dom";
+import React from 'react';
+import { BrowserRouter } from 'react-router-dom';
+import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
+import { createStore, applyMiddleware, compose } from 'redux';
+import thunk from 'redux-thunk';
 
-const store = createStore(reducer, compose(applyMiddleware(thunk)));
+import { reducers } from './reducers';
+import App from './App';
+import './index.css';
+
+const store = createStore(reducers, compose(applyMiddleware(thunk)));
 
 ReactDOM.render(
   <BrowserRouter>
@@ -15,6 +17,5 @@ ReactDOM.render(
       <App />
     </Provider>
   </BrowserRouter>,
-
-  document.getElementById("root")
+  document.getElementById('root')
 );

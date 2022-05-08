@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import {
   Card,
   CardActions,
@@ -6,21 +6,21 @@ import {
   CardMedia,
   Button,
   Typography,
-} from '@mui/material';
-import { useDispatch } from 'react-redux';
-import DeleteIcon from '@mui/icons-material/Delete';
-import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
-import ThumbUpAltIcon from '@mui/icons-material/ThumbUpAlt';
+} from "@mui/material";
+import { useDispatch } from "react-redux";
+import DeleteIcon from "@mui/icons-material/Delete";
+import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
+import ThumbUpAltIcon from "@mui/icons-material/ThumbUpAlt";
 
-import useStyles from './styles';
-import moment from 'moment';
+import useStyles from "./styles";
+import moment from "moment";
 
-import { deletePost, likePost } from '../../../actions/posts';
+import { deletePost, likePost } from "../../../actions/posts";
 
 const Post = ({ post, setCurrentId }) => {
   const dispatch = useDispatch();
   const classes = useStyles();
-  const user = JSON.parse(localStorage.getItem('profile'));
+  const user = JSON.parse(localStorage.getItem("profile"));
 
   const handleLike = async () => {
     dispatch(likePost(post._id));
@@ -37,12 +37,12 @@ const Post = ({ post, setCurrentId }) => {
           &nbsp;
           {post.likes.length > 2
             ? `You and ${post.likes.length - 1} others`
-            : `${post.likes.length} like${post.likes.length > 1 ? 's' : ''}`}
+            : `${post.likes.length} like${post.likes.length > 1 ? "s" : ""}`}
         </>
       ) : (
         <>
           <ThumbUpAltIcon fontSize="small" />
-          &nbsp;{post.likes.length} {post.likes.length === 1 ? 'Like' : 'Likes'}
+          &nbsp;{post.likes.length} {post.likes.length === 1 ? "Like" : "Likes"}
         </>
       );
     }
@@ -59,7 +59,7 @@ const Post = ({ post, setCurrentId }) => {
         className={classes.media}
         image={
           post.selectedFile ||
-          'https://user-images.githubusercontent.com/194400/49531010-48dad180-f8b1-11e8-8d89-1e61320e1d82.png'
+          "https://user-images.githubusercontent.com/194400/49531010-48dad180-f8b1-11e8-8d89-1e61320e1d82.png"
         }
         title={post.title}
       />
@@ -71,7 +71,7 @@ const Post = ({ post, setCurrentId }) => {
       </div>
       <div className={classes.overlay2}>
         <Button
-          style={{ color: 'white' }}
+          style={{ color: "white" }}
           size="small"
           onClick={() => setCurrentId(post._id)}
         >
